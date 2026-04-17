@@ -14,7 +14,7 @@ const submit = () => {
 
 <template>
   <div>
-    <h2 class="text-2xl font-bold mb-2">Welcome Back</h2>
+    <h2 class="text-2xl font-bold mb-2 text-center text-primary">Welcome Back</h2>
     <p class="text-gray-500 mb-6">Enter your email address and password to access your account.</p>
 
     <form @submit.prevent="submit" class="space-y-4">

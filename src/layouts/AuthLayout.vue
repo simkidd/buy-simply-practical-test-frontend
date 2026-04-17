@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen">
-    <div class="w-full bg-primary-light overflow-hidden grid lg:grid-cols-2">
+    <div class="w-full h-full bg-primary-light grid lg:grid-cols-2">
       <div class="w-full py-6 px-[45px] hidden lg:block">
         <div class="flex items-center gap-2 mb-[47px]">
           <img src="/logos/e6b999b32384ec535a0fa4a5c53ca55838c6f12f.png" class="h-[97px]" />
