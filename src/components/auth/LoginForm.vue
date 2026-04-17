@@ -13,35 +13,47 @@ const submit = () => {
 </script>
 
 <template>
-  <div>
-    <h2 class="text-2xl font-bold mb-2 text-center text-primary">Welcome Back</h2>
-    <p class="text-gray-500 mb-6">Enter your email address and password to access your account.</p>
+  <div class="w-full max-w-[520px] mx-auto">
+    <h2 class="text-[24px] lg:text-[32px] font-bold mb-2 text-center text-primary font-lora">
+      Welcome Back
+    </h2>
+    <p class="text-gray-700 mb-6 text-center text-sm md:text-base">
+      Enter your email address and password to access your account.
+    </p>
 
-    <form @submit.prevent="submit" class="space-y-4">
-      <Input label="Email Address *" type="email" placeholder="Enter your email" v-model="email" />
-
-      <Input
-        label="Password *"
-        type="password"
-        placeholder="Enter your password"
-        v-model="password"
-      />
-
-      <div class="flex items-center justify-between">
-        <label class="flex items-center gap-2 text-sm">
-          <input type="checkbox" v-model="remember" />
-          <span>Remember me</span>
-        </label>
-
-        <a href="#" class="text-sm text-purple-600 hover:underline"> Forgot Password </a>
+    <form @submit.prevent="submit">
+      <div class="space-y-6">
+        <Input
+          label="Email Address"
+          type="email"
+          placeholder="Enter your email"
+          v-model="email"
+          required
+        />
+        <Input
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          v-model="password"
+          required
+        />
       </div>
 
-      <Button> Sign in </Button>
+      <div class="flex items-center justify-between mt-4">
+        <label class="flex items-center gap-2 text-sm">
+          <input type="checkbox" v-model="remember" class="accent-primary" />
+          <span class="text-gray-700">Remember me</span>
+        </label>
+
+        <a href="#" class="text-sm text-primary hover:underline"> Forgot Password? </a>
+      </div>
+
+      <Button class="mt-[40px]"> Sign in </Button>
     </form>
 
-    <p class="text-sm text-center mt-6">
+    <p class="text-sm text-center mt-2.5 text-gray-700">
       Don't have an account?
-      <span class="text-purple-600 font-medium cursor-pointer"> Sign up </span>
+      <span class="text-primary font-medium cursor-pointer"> Sign up </span>
     </p>
   </div>
 </template>

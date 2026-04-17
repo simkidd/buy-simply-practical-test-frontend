@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { Eye, EyeOff } from '@lucide/vue'
 
 interface Props {
   label?: string
   type?: string
   placeholder?: string
   modelValue: string
+  required?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,26 +33,32 @@ const model = computed({
 
 <template>
   <div>
-    <label v-if="label" class="block text-sm font-medium mb-1">
+    <label v-if="label" class="block text-sm font-medium mb-2 text-gray-900">
       {{ label }}
+      <span v-if="required" class="text-red-500 ml-1">*</span>
     </label>
 
-    <div class="relative">
+    <div
+      class="relative w-full flex items-stretch rounded-[8px] border border-gray-300 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition overflow-hidden"
+    >
       <input
         :type="inputType"
         v-model="model"
         :placeholder="placeholder"
-        class="w-full border px-3 py-2 pr-10 outline-none transition border-[--color-border] focus:ring-2 focus:ring-[--color-primary]/20 focus:border-[--color-primary]"
+        :class="[
+          'flex-1 px-3 py-2 outline-none bg-transparent',
+          type === 'password' ? 'pr-14' : 'pr-3',
+        ]"
       />
 
-      <!-- Password Toggle -->
       <button
         v-if="type === 'password'"
         type="button"
         @click="showPassword = !showPassword"
-        class="absolute right-3 top-2.5 text-gray-400 text-sm"
+        class="absolute right-0 top-0 h-full px-3 flex items-center justify-center bg-gray-100 text-gray-600"
       >
-        {{ showPassword ? '🙈' : '👁' }}
+        <Eye v-if="!showPassword" class="w-4 h-4" />
+        <EyeOff v-else class="w-4 h-4" />
       </button>
     </div>
   </div>
