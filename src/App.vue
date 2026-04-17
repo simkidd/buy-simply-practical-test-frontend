@@ -1,4 +1,5 @@
 <template>
-  <div>app</div>
-  app
+  <main>
+    <RouterView />
+  </main>
 </template>
